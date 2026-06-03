@@ -30,7 +30,6 @@ export function TrustMetrics() {
                 to={metric.value}
                 prefix={"prefix" in metric ? metric.prefix : ""}
                 suffix={metric.suffix}
-                decimals={"decimals" in metric ? metric.decimals : 0}
                 className="font-sans text-5xl font-bold uppercase tracking-tight sm:text-6xl lg:text-7xl"
               />
               <p className="text-muted-foreground text-sm font-medium uppercase tracking-wider">

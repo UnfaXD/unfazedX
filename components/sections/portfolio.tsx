@@ -1,89 +1,137 @@
+import Image from "next/image";
 import { Container } from "@/components/site/container";
 import { Reveal, RevealItem, RevealStagger } from "@/components/site/reveal";
-import { portfolioShowcase } from "@/lib/brand";
+import { projects } from "@/lib/brand";
 
 export function Portfolio() {
   return (
     <section
-      id="portfolio"
-      aria-labelledby="portfolio-heading"
-      className="relative py-28 sm:py-40"
+      id="projects"
+      aria-labelledby="projects-heading"
+      className="relative py-20 sm:py-28"
     >
       <Container>
-        <div className="mb-16 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+        <div className="mb-12 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <div>
             <Reveal>
-              <p className="text-lime mb-6 text-xs font-semibold uppercase tracking-[0.25em]">
-                ● Portfolio showcase
+              <p className="text-lime mb-4 text-xs font-semibold uppercase tracking-[0.25em]">
+                ● Selected projects
               </p>
             </Reveal>
             <Reveal delay={0.05}>
               <h2
-                id="portfolio-heading"
+                id="projects-heading"
                 className="text-balance font-sans text-4xl font-bold uppercase leading-[0.92] tracking-tight sm:text-5xl lg:text-6xl"
               >
-                Selected
+                Real work,
                 <br />
                 <span className="text-muted-foreground italic font-light">
-                  case
+                  shipped
                 </span>{" "}
-                studies.
+                under the brand.
               </h2>
             </Reveal>
           </div>
           <Reveal delay={0.1}>
             <p className="text-muted-foreground max-w-md text-base sm:text-lg">
-              Real products, real markets, real outcomes.
+              A selection of brand identity, UI/UX, and product design work from
+              UnfazedX. Tap any card to view the full case on Dribbble or Behance.
             </p>
           </Reveal>
         </div>
 
-        <RevealStagger className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          {portfolioShowcase.map((item, idx) => (
-            <RevealItem
-              key={item.title}
-              className={`group relative isolate overflow-hidden rounded-3xl border border-border/60 bg-card transition-all duration-700 hover:-translate-y-1 hover:border-border ${
-                idx === 0 || idx === 3 ? "lg:row-span-1" : ""
-              }`}
-            >
-              <div className="grid h-full grid-rows-[1fr_auto]">
-                <div className="relative h-72 overflow-hidden sm:h-80">
+        <RevealStagger className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project) => (
+            <RevealItem key={project.title}>
+              <a
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${project.title} — view on ${project.platform}`}
+                className="group focus-visible:outline-lime relative block overflow-hidden rounded-3xl border border-border/60 bg-card transition-all duration-700 hover:-translate-y-1 hover:border-border focus-visible:outline-2 focus-visible:outline-offset-4"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden">
                   <div
                     aria-hidden="true"
-                    className={`bg-gradient-to-br ${item.gradient} absolute inset-0 opacity-90 transition-transform duration-1000 group-hover:scale-110`}
+                    className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-80`}
+                  />
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} — ${project.category} by UnfazedX`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-[1200ms] group-hover:scale-[1.06]"
+                    style={{
+                      objectPosition: project.objectPosition ?? "center",
+                    }}
                   />
                   <div
                     aria-hidden="true"
-                    className="absolute inset-0 mix-blend-overlay grid-bg-sm opacity-40"
+                    className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
                   />
-                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-6 sm:p-8">
-                    <span
-                      className="font-sans text-7xl font-bold uppercase tracking-tighter text-black/80 sm:text-8xl"
-                    >
-                      {item.metric}
+
+                  <div className="absolute top-4 left-4 z-10 flex gap-2">
+                    <span className="bg-black/60 text-white inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider backdrop-blur-md">
+                      <span className="bg-lime size-1.5 rounded-full" aria-hidden />
+                      {project.platform}
+                    </span>
+                    <span className="bg-black/60 text-white/90 inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider backdrop-blur-md">
+                      {project.category}
                     </span>
                   </div>
-                </div>
-                <div className="flex items-center justify-between gap-6 border-t border-border/60 p-6 sm:p-8">
-                  <div>
-                    <h3 className="font-sans text-2xl font-bold uppercase tracking-tight">
-                      {item.title}
-                    </h3>
-                    <p className="text-muted-foreground mt-1 text-sm">
-                      {item.subtitle} · {item.metricLabel}
-                    </p>
+
+                  <div className="absolute top-4 right-4 z-10">
+                    <span
+                      aria-hidden="true"
+                      className="bg-white/15 text-white inline-flex size-9 items-center justify-center rounded-full text-lg backdrop-blur-md transition-all duration-500 group-hover:bg-lime group-hover:text-lime-foreground group-hover:rotate-45"
+                    >
+                      ↗
+                    </span>
                   </div>
-                  <span
-                    aria-hidden="true"
-                    className="bg-secondary text-muted-foreground group-hover:bg-lime group-hover:text-lime-foreground inline-flex size-11 shrink-0 items-center justify-center rounded-full text-xl transition-all duration-500 group-hover:rotate-45"
-                  >
-                    ↗
-                  </span>
+
+                  <div className="absolute inset-x-0 bottom-0 z-10 p-5">
+                    <h3 className="font-sans text-2xl font-bold uppercase tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] sm:text-3xl">
+                      {project.title}
+                    </h3>
+                  </div>
                 </div>
-              </div>
+
+                <div className="border-t border-border/60 p-5">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {project.blurb}
+                  </p>
+                </div>
+              </a>
             </RevealItem>
           ))}
         </RevealStagger>
+
+        <Reveal delay={0.2} className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="https://dribbble.com/Netfort"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-border bg-secondary text-foreground hover:border-lime/60 hover:text-lime inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold transition-colors"
+          >
+            View all on Dribbble <span aria-hidden>↗</span>
+          </a>
+          <a
+            href="https://www.behance.net/reconfortdaniel"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-border bg-secondary text-foreground hover:border-lime/60 hover:text-lime inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold transition-colors"
+          >
+            View all on Behance <span aria-hidden>↗</span>
+          </a>
+          <a
+            href="https://www.pinterest.com/ReconfortDaniel/netfort-uiz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-border bg-secondary text-foreground hover:border-lime/60 hover:text-lime inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold transition-colors"
+          >
+            Mood board on Pinterest <span aria-hidden>↗</span>
+          </a>
+        </Reveal>
       </Container>
     </section>
   );

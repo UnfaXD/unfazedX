@@ -7,14 +7,14 @@ export function CoreValues() {
     <section
       id="values"
       aria-labelledby="values-heading"
-      className="relative border-y border-border/60 py-28 sm:py-40"
+      className="relative border-y border-border/60 py-20 sm:py-28"
     >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 grid-bg radial-fade opacity-40"
       />
       <Container>
-        <div className="mb-16 max-w-3xl">
+        <div className="mb-12 max-w-3xl">
           <Reveal>
             <p className="text-lime mb-6 text-xs font-semibold uppercase tracking-[0.25em]">
               ● Core values

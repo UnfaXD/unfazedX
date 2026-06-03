@@ -3,8 +3,9 @@
 import * as React from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 import { Container } from "@/components/site/container";
+import { WhatsAppIcon } from "@/components/site/icons";
 import { Marquee } from "@/components/site/marquee";
-import { marqueeWords } from "@/lib/brand";
+import { brand, marqueeWords } from "@/lib/brand";
 
 export function Hero() {
   const reduced = useReducedMotion() ?? false;
@@ -50,7 +51,7 @@ export function Hero() {
           <span className="bg-lime relative inline-flex size-1.5 rounded-full">
             <span className="bg-lime absolute inset-0 animate-ping rounded-full opacity-75" />
           </span>
-          Africa's premier venture studio · Est. 2023
+          Kigali-born venture studio · Est. 2024
         </motion.div>
 
         <motion.h1
@@ -96,16 +97,22 @@ export function Hero() {
           className="mt-10 grid gap-8 sm:mt-14 sm:grid-cols-2 sm:items-end"
         >
           <p className="text-muted-foreground max-w-md text-balance text-lg leading-relaxed sm:text-xl">
-            UnfazedX is a technology venture studio building, funding, and scaling
-            the category-defining digital companies of the next African decade.
+            UnfazedX Holdings is a technology venture studio and digital
+            solutions company. We <span className="text-foreground">build,
+            launch, grow, and scale</span> digital products — and our own
+            ventures — out of Kigali, for Africa.
           </p>
           <div className="flex flex-col items-start gap-3 sm:items-end">
             <div className="flex flex-wrap items-center gap-3">
               <a
-                href="#cta"
+                href={brand.whatsapp.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Start a project on WhatsApp · ${brand.phone}`}
                 className="bg-lime text-lime-foreground group inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-transform hover:-translate-y-0.5 hover:shadow-[0_12px_32px_-8px_rgba(223,225,4,0.55)]"
               >
-                Start a venture
+                <WhatsAppIcon className="size-4" />
+                Start a project
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
               </a>
               <a
@@ -116,7 +123,7 @@ export function Hero() {
               </a>
             </div>
             <p className="text-muted-foreground text-xs">
-              Trusted by founders across Lagos · Nairobi · Cape Town · Accra
+              Operating from Kigali · Serving Rwanda, East Africa & beyond
             </p>
           </div>
         </motion.div>
@@ -126,7 +133,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="text-foreground/60 mt-16 border-t border-border/60 py-5 font-sans text-2xl font-bold uppercase tracking-tight sm:text-3xl"
+        className="text-foreground/60 mt-12 border-t border-border/60 py-5 font-sans text-2xl font-bold uppercase tracking-tight sm:text-3xl"
       >
         <Marquee items={marqueeWords} speed="normal" />
       </motion.div>

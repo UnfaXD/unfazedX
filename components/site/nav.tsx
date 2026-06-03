@@ -2,8 +2,9 @@
 
 import * as React from "react";
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
+import { WhatsAppIcon } from "@/components/site/icons";
 import { Logo } from "@/components/site/logo";
-import { navLinks } from "@/lib/brand";
+import { brand, navLinks } from "@/lib/brand";
 import { cn } from "@/lib/utils";
 
 export function Nav() {
@@ -59,10 +60,14 @@ export function Nav() {
 
         <div className="flex items-center gap-2">
           <a
-            href="#cta"
-            className="bg-lime text-lime-foreground hidden rounded-full px-4 py-2 text-sm font-semibold transition-transform hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_rgba(223,225,4,0.6)] md:inline-flex"
+            href={brand.whatsapp.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Start a project on WhatsApp · ${brand.phone}`}
+            className="bg-lime text-lime-foreground hidden items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-transform hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_rgba(223,225,4,0.6)] md:inline-flex"
           >
-            Start a venture
+            <WhatsAppIcon className="size-4" />
+            Start a project
           </a>
           <button
             type="button"
@@ -114,11 +119,14 @@ export function Nav() {
               ))}
               <li>
                 <a
-                  href="#cta"
+                  href={brand.whatsapp.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setOpen(false)}
-                  className="bg-lime text-lime-foreground mt-1 block rounded-xl px-4 py-3 text-center text-base font-semibold"
+                  className="bg-lime text-lime-foreground mt-1 flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-center text-base font-semibold"
                 >
-                  Start a venture
+                  <WhatsAppIcon className="size-4" />
+                  Start a project
                 </a>
               </li>
             </ul>

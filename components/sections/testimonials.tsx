@@ -1,71 +1,80 @@
 import { Container } from "@/components/site/container";
 import { Reveal, RevealItem, RevealStagger } from "@/components/site/reveal";
-import { testimonials } from "@/lib/brand";
+import { clients } from "@/lib/brand";
 
 export function Testimonials() {
   return (
     <section
-      id="testimonials"
-      aria-labelledby="testimonials-heading"
-      className="relative border-y border-border/60 bg-card/50 py-28 sm:py-40"
+      id="clients"
+      aria-labelledby="clients-heading"
+      className="relative border-y border-border/60 bg-card/50 py-20 sm:py-28"
     >
       <Container>
-        <div className="mb-16 max-w-3xl">
-          <Reveal>
-            <p className="text-lime mb-6 text-xs font-semibold uppercase tracking-[0.25em]">
-              ● Testimonials
+        <div className="mb-12 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+          <div>
+            <Reveal>
+              <p className="text-lime mb-6 text-xs font-semibold uppercase tracking-[0.25em]">
+                ● Clients & collaborations
+              </p>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <h2
+                id="clients-heading"
+                className="text-balance font-sans text-4xl font-bold uppercase leading-[0.92] tracking-tight sm:text-5xl lg:text-6xl"
+              >
+                Teams we've
+                <br />
+                <span className="text-muted-foreground italic font-light">
+                  built
+                </span>{" "}
+                with.
+              </h2>
+            </Reveal>
+          </div>
+          <Reveal delay={0.1}>
+            <p className="text-muted-foreground max-w-md text-base sm:text-lg">
+              From education and tech to product startups and our own ventures
+              — a selected history of clients, partners, and proprietary
+              programs.
             </p>
-          </Reveal>
-          <Reveal delay={0.05}>
-            <h2
-              id="testimonials-heading"
-              className="text-balance font-sans text-4xl font-bold uppercase leading-[0.92] tracking-tight sm:text-5xl lg:text-6xl"
-            >
-              Trusted by
-              <br />
-              <span className="text-muted-foreground italic font-light">
-                operators
-              </span>{" "}
-              we build with.
-            </h2>
           </Reveal>
         </div>
 
-        <RevealStagger className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          {testimonials.map((testimonial) => (
+        <RevealStagger className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-border/60 bg-border/60 sm:grid-cols-2 lg:grid-cols-3">
+          {clients.map((client) => (
             <RevealItem
-              key={testimonial.author}
-              className="group border-border bg-background hover:border-lime/30 relative flex flex-col gap-6 rounded-3xl border p-8 transition-all duration-500 sm:p-10"
+              key={client.name}
+              className="bg-background group relative flex flex-col gap-4 p-7 transition-colors duration-500 hover:bg-card sm:p-9"
             >
-              <span
-                aria-hidden="true"
-                className="text-lime/40 font-sans text-6xl leading-none"
-              >
-                "
-              </span>
-              <blockquote className="text-foreground text-balance text-xl leading-relaxed sm:text-2xl">
-                {testimonial.quote}
-              </blockquote>
-              <footer className="mt-auto flex items-center gap-4 border-t border-border/60 pt-6">
-                <div
-                  aria-hidden="true"
-                  className="bg-lime text-lime-foreground inline-flex size-11 items-center justify-center rounded-full font-sans text-base font-bold"
+              <div className="flex items-center justify-between">
+                <span
+                  className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${
+                    client.status === "Venture"
+                      ? "border-lime/40 bg-lime/10 text-lime"
+                      : client.status === "Partner"
+                        ? "border-border bg-secondary text-foreground"
+                        : "border-border bg-secondary text-muted-foreground"
+                  }`}
                 >
-                  {testimonial.author
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")
-                    .slice(0, 2)}
-                </div>
-                <div>
-                  <p className="font-sans text-base font-semibold">
-                    {testimonial.author}
-                  </p>
-                  <p className="text-muted-foreground text-sm">
-                    {testimonial.role}, {testimonial.company}
-                  </p>
-                </div>
-              </footer>
+                  <span
+                    className={`size-1.5 rounded-full ${client.status === "Venture" ? "bg-lime" : "bg-muted-foreground"}`}
+                    aria-hidden
+                  />
+                  {client.status}
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="text-muted-foreground group-hover:text-lime text-lg transition-colors"
+                >
+                  ↗
+                </span>
+              </div>
+              <h3 className="font-sans text-3xl font-bold uppercase tracking-tight sm:text-4xl">
+                {client.name}
+              </h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {client.description}
+              </p>
             </RevealItem>
           ))}
         </RevealStagger>

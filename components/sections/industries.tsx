@@ -7,7 +7,7 @@ export function Industries() {
     <section
       id="industries"
       aria-labelledby="industries-heading"
-      className="relative py-28 sm:py-40"
+      className="relative py-20 sm:py-28"
     >
       <Container>
         <div className="grid gap-12 lg:grid-cols-12 lg:items-end">

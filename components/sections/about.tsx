@@ -1,12 +1,13 @@
 import { Container } from "@/components/site/container";
 import { Reveal } from "@/components/site/reveal";
+import { brand } from "@/lib/brand";
 
 export function About() {
   return (
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="relative py-28 sm:py-40"
+      className="relative py-20 sm:py-28"
     >
       <Container>
         <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
@@ -24,9 +25,9 @@ export function About() {
                 A venture studio
                 <br />
                 <span className="text-muted-foreground italic font-light">
-                  engineered
+                  built in
                 </span>{" "}
-                for Africa.
+                Kigali.
               </h2>
             </Reveal>
           </div>
@@ -34,25 +35,28 @@ export function About() {
           <div className="lg:col-span-7 lg:pl-12">
             <Reveal delay={0.1}>
               <p className="text-foreground/90 text-balance text-xl leading-relaxed sm:text-2xl">
-                We don't consult. We don't ship features. We build, fund, and scale
-                ventures from <span className="text-lime">zero to category leader</span>.
+                We don't consult. We don't ship features. We{" "}
+                <span className="text-lime">build, launch, grow, and scale</span>{" "}
+                digital products — and our own ventures — from Kigali, Rwanda.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
               <p className="text-muted-foreground mt-6 max-w-2xl text-base leading-relaxed sm:text-lg">
-                UnfazedX brings together world-class product strategists, designers,
-                and engineers under one roof — operating with the discipline of a
-                Fortune 500 product org and the velocity of a seed-stage startup.
-                Every venture we touch is built to win, measured by markets, and
-                engineered to last.
+                Founded in {brand.founded} by{" "}
+                <span className="text-foreground">{brand.founder.shortName}</span>,
+                UnfazedX Holdings operates as both a digital transformation partner
+                for organizations and a creator of proprietary technology products.
+                Engineering excellence, human-centered design, strategic marketing,
+                and operational expertise — under one roof, delivering measurable
+                business outcomes for SMEs and startups across Africa and Asia.
               </p>
             </Reveal>
 
             <Reveal delay={0.2} className="mt-12 grid grid-cols-3 gap-6 border-t border-border/60 pt-10">
               {[
-                { label: "Founded", value: "2023" },
-                { label: "Studios", value: "4" },
-                { label: "Operators", value: "60+" },
+                { label: "Founded", value: brand.founded },
+                { label: "HQ", value: brand.city },
+                { label: "Team", value: `${brand.team}+` },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="font-sans text-3xl font-bold sm:text-4xl">

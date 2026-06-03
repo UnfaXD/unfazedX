@@ -7,14 +7,14 @@ export function Services() {
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="relative py-28 sm:py-40"
+      className="relative py-20 sm:py-28"
     >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 grid-bg-sm opacity-40 radial-fade"
       />
       <Container>
-        <div className="mb-16 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+        <div className="mb-12 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <div>
             <Reveal>
               <p className="text-lime mb-6 text-xs font-semibold uppercase tracking-[0.25em]">

@@ -13,30 +13,37 @@ const spaceGrotesk = Space_Grotesk({
 const SITE_URL = "https://unfazedx.com";
 const SITE_NAME = "UnfazedX Holdings";
 const SITE_DESCRIPTION =
-  "UnfazedX is a technology venture studio and digital solutions company engineering the next generation of African technology companies. We build, fund, and scale category-defining products.";
+  "UnfazedX Holdings is a Kigali-born technology venture studio and digital solutions company. We design, build, and scale digital products and proprietary technology ventures across Africa.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Building the next generation of African technology`,
+    default: `${SITE_NAME} — Build. Launch. Grow. Scale.`,
     template: `%s · ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
-  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  authors: [
+    { name: "NDAYISHIMIYE Reconfort Daniel", url: "https://unfazedx.com" },
+  ],
   creator: SITE_NAME,
   publisher: SITE_NAME,
   keywords: [
     "UnfazedX",
+    "UnfazedX Holdings",
     "venture studio",
+    "Kigali",
+    "Rwanda",
     "African technology",
     "digital solutions",
-    "fintech",
-    "product engineering",
-    "design systems",
-    "venture builder",
-    "startup studio",
-    "Africa tech",
+    "product design",
+    "UI/UX",
+    "brand identity",
+    "software engineering",
+    "digital marketing",
+    "Estatify",
+    "UnfazedX Commerce",
+    "Reconfort Daniel",
   ],
   category: "technology",
   alternates: { canonical: SITE_URL },
@@ -44,15 +51,14 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — Building the next generation of African technology`,
+    title: `${SITE_NAME} — Build. Launch. Grow. Scale.`,
     description: SITE_DESCRIPTION,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} — Building the next generation of African technology`,
+    title: `${SITE_NAME} — Build. Launch. Grow. Scale.`,
     description: SITE_DESCRIPTION,
-    creator: "@unfazedx",
   },
   robots: {
     index: true,
@@ -85,13 +91,24 @@ const organizationJsonLd = {
   name: SITE_NAME,
   legalName: "UnfazedX Holdings",
   url: SITE_URL,
-  logo: `${SITE_URL}/logo.png`,
   description: SITE_DESCRIPTION,
-  foundingDate: "2023",
+  foundingDate: "2024",
+  email: "reconfortdanny@gmail.com",
+  telephone: "+250780151067",
+  founder: {
+    "@type": "Person",
+    name: "NDAYISHIMIYE Reconfort Daniel",
+    jobTitle: "Founder & Lead Designer",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Kigali",
+    addressCountry: "RW",
+  },
   sameAs: [
-    "https://twitter.com/unfazedx",
-    "https://linkedin.com/company/unfazedx",
-    "https://github.com/unfazedx",
+    "https://dribbble.com/Netfort",
+    "https://www.behance.net/reconfortdaniel",
+    "https://www.pinterest.com/ReconfortDaniel/netfort-uiz/",
   ],
 };
 

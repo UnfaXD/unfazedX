@@ -7,10 +7,10 @@ export function WhyUnfazedX() {
     <section
       id="why"
       aria-labelledby="why-heading"
-      className="relative border-y border-border/60 bg-card/50 py-28 sm:py-40"
+      className="relative border-y border-border/60 bg-card/50 py-20 sm:py-28"
     >
       <Container>
-        <div className="grid gap-16 lg:grid-cols-12">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
             <Reveal>
               <p className="text-lime mb-6 text-xs font-semibold uppercase tracking-[0.25em]">
@@ -22,30 +22,36 @@ export function WhyUnfazedX() {
                 id="why-heading"
                 className="text-balance font-sans text-4xl font-bold uppercase leading-[0.92] tracking-tight sm:text-5xl lg:text-6xl"
               >
-                Built different.
+                Five reasons.
                 <br />
                 <span className="text-muted-foreground italic font-light">
-                  By design.
-                </span>
+                  Zero
+                </span>{" "}
+                excuses.
               </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="text-muted-foreground mt-6 max-w-md text-base sm:text-lg">
+                Bridging the gap between ambitious ideas and successful execution
+                — for every business, regardless of size.
+              </p>
             </Reveal>
           </div>
 
           <div className="lg:col-span-8">
-            <RevealStagger className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/60 sm:grid-cols-2">
+            <RevealStagger className="divide-border/60 border-border/60 divide-y border-y">
               {whyUnfazedX.map((item, idx) => (
                 <RevealItem
                   key={item.title}
-                  className="bg-card group relative flex flex-col gap-3 p-7 transition-colors duration-500 hover:bg-secondary/50 sm:p-9"
+                  className="group grid grid-cols-12 items-baseline gap-4 py-7 transition-colors sm:py-9"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="text-lime font-mono text-xs">0{idx + 1}</span>
-                    <div className="bg-border h-px flex-1" />
-                  </div>
-                  <h3 className="font-sans text-2xl font-bold uppercase tracking-tight">
+                  <span className="text-muted-foreground group-hover:text-lime col-span-2 font-mono text-xs transition-colors sm:col-span-1">
+                    0{idx + 1}
+                  </span>
+                  <h3 className="text-balance col-span-10 font-sans text-3xl font-bold uppercase leading-[0.95] tracking-tight transition-transform duration-500 group-hover:translate-x-2 sm:col-span-5 sm:text-5xl lg:text-6xl">
                     {item.title}
                   </h3>
-                  <p className="text-muted-foreground text-base leading-relaxed">
+                  <p className="text-muted-foreground col-span-12 max-w-lg text-base leading-relaxed sm:col-span-6 sm:text-lg">
                     {item.description}
                   </p>
                 </RevealItem>

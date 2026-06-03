@@ -7,10 +7,10 @@ export function Process() {
     <section
       id="process"
       aria-labelledby="process-heading"
-      className="relative border-y border-border/60 bg-card/50 py-28 sm:py-40"
+      className="relative border-y border-border/60 bg-card/50 py-20 sm:py-28"
     >
       <Container>
-        <div className="mb-16 max-w-3xl">
+        <div className="mb-12 max-w-3xl">
           <Reveal>
             <p className="text-lime mb-6 text-xs font-semibold uppercase tracking-[0.25em]">
               ● Process
