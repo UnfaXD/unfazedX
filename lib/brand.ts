@@ -26,8 +26,8 @@ export const brand = {
   builder: {
     name: "Reconfort Daniel",
     role: "Senior Software Engineer & UI/UX Designer",
-    url: "https://icondev.netlify.app",
-    label: "icondev.netlify.app",
+    url: "https://reconfort.vercel.app",
+    label: "reconfort.vercel.app",
   },
   socials: [
     { label: "Dribbble", href: "https://dribbble.com/Netfort" },
