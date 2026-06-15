@@ -2,9 +2,9 @@ export const brand = {
   name: "UnfazedX",
   legalName: "UnfazedX Holdings",
   tagline: "Build. Launch. Grow. Scale.",
-  subtagline: "Technology Ventures · Digital Solutions · Product Innovation",
+  subtagline: "Web · Brand · Product · Growth — for Rwandan businesses",
   description:
-    "UnfazedX Holdings is a technology-driven venture studio and digital solutions company. We build, fund, and scale digital products and proprietary technology ventures across Africa.",
+    "UnfazedX is a Kigali-based creative technology studio. We design and build websites, online stores, brands, and digital products for ambitious businesses across Rwanda — and build our own ventures alongside them.",
   email: "reconfortdanny@gmail.com",
   phone: "+250 780 151 067",
   whatsapp: {
@@ -43,6 +43,7 @@ export const brand = {
 export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
+  { label: "Pricing", href: "#pricing" },
   { label: "Ventures", href: "#ventures" },
   { label: "Process", href: "#process" },
   { label: "Projects", href: "#projects" },
@@ -108,6 +109,99 @@ export const services = [
     description:
       "Business process automation, workflow optimization, data management, and internal systems — the back-office work that unlocks real growth.",
     capabilities: ["Automation", "Workflows", "Data", "Internal Tools"],
+  },
+] as const;
+
+export const packages = [
+  {
+    name: "Launch Site",
+    summary:
+      "A clean, professional 3–5 page site that makes a small business look credible online — fast.",
+    priceRwf: "RWF 350K–550K",
+    priceUsd: "$240–375",
+    timeline: "1–2 weeks",
+    features: [
+      "Mobile-first design",
+      "Contact + WhatsApp",
+      "Basic SEO + Google",
+      "1 year hosting",
+    ],
+    featured: false,
+  },
+  {
+    name: "Growth Site",
+    summary:
+      "A bigger, custom-designed site built to convert — for businesses ready to grow seriously online.",
+    priceRwf: "RWF 700K–1.25M",
+    priceUsd: "$475–850",
+    timeline: "2–4 weeks",
+    features: [
+      "8–15 custom pages",
+      "Tailored UI/UX",
+      "Blog + advanced SEO",
+      "CRM / email integration",
+    ],
+    featured: true,
+  },
+  {
+    name: "Online Store",
+    summary:
+      "A branded storefront with catalogue, MoMo Pay + card checkout, WhatsApp ordering and delivery logic.",
+    priceRwf: "RWF 1.8M–4.4M",
+    priceUsd: "$1,200–3,000",
+    timeline: "4–10 weeks",
+    features: [
+      "Product catalogue",
+      "MoMo Pay + card",
+      "WhatsApp order flow",
+      "Delivery & inventory",
+    ],
+    featured: false,
+  },
+  {
+    name: "Brand Identity",
+    summary:
+      "A complete visual identity that makes a young business look established and unmistakable.",
+    priceRwf: "RWF 450K–900K",
+    priceUsd: "$300–600",
+    timeline: "1–2 weeks",
+    features: [
+      "Logo system",
+      "Colour + typography",
+      "Brand guidelines",
+      "Social templates",
+    ],
+    featured: false,
+  },
+  {
+    name: "Social + Ads",
+    summary:
+      "Ongoing content and paid campaigns that keep customers coming — managed month to month.",
+    priceRwf: "RWF 300K–650K / mo",
+    priceUsd: "$200–440 / mo",
+    timeline: "Monthly retainer",
+    features: [
+      "Content calendar",
+      "Posting & design",
+      "Meta / Google ads",
+      "Monthly reporting",
+    ],
+    featured: false,
+  },
+  {
+    name: "Care Plan",
+    summary:
+      "We keep your site fast, secure and up to date so you never have to think about it.",
+    priceRwf: "RWF 50K–120K / mo",
+    priceUsd: "$35–80 / mo",
+    timeline: "Monthly retainer",
+    features: [
+      "Hosting & uptime",
+      "Security & backups",
+      "Updates & fixes",
+      "Small changes",
+    ],
+    featured: false,
   },
 ] as const;
 
@@ -191,48 +285,38 @@ export const processSteps = [
 ] as const;
 
 export const industries = [
+  "Restaurants & Cafés",
+  "Hospitality & Tourism",
   "Real Estate",
-  "Education",
-  "Healthcare",
+  "Health & Clinics",
+  "Beauty & Wellness",
   "Retail & Commerce",
   "Professional Services",
-  "Financial Services",
-  "Logistics",
-  "Hospitality",
+  "Education",
   "Startups & Tech",
-  "Government & NGOs",
+  "NGOs & Cooperatives",
 ] as const;
 
 export const coreValues = [
   {
-    title: "Excellence",
+    title: "Unfazed",
     description:
-      "We pursue exceptional quality in every product, service, and interaction. Excellence is a continuous commitment, not an act.",
+      "We take on hard, unglamorous problems and ship. Pressure, deadlines, and ambitious scope don't shake us — they focus us.",
   },
   {
-    title: "Innovation",
+    title: "Craft",
     description:
-      "We challenge conventional thinking and continuously explore new ways to solve complex problems. Innovation drives every venture we touch.",
+      "Design and code people can feel the quality of. Craft is non-negotiable at every layer, from the first pixel to production.",
   },
   {
-    title: "Ownership",
+    title: "Clarity",
     description:
-      "We take responsibility for outcomes, not just deliverables. We approach every project with an owner's mindset.",
+      "We make the complex simple for clients who aren't technical. No jargon, no surprises — just clear work and clear communication.",
   },
   {
-    title: "Integrity",
+    title: "Partnership",
     description:
-      "Trust is earned through transparency, honesty, and consistency. We do what's right even when no one is watching.",
-  },
-  {
-    title: "Growth",
-    description:
-      "We are committed to continuous learning, adaptation, and progress. Our clients', team's, and community's growth defines our own.",
-  },
-  {
-    title: "Impact",
-    description:
-      "Technology should create meaningful change. We build solutions that improve lives, strengthen businesses, and drive economic development.",
+      "Our clients' growth is the only scoreboard that matters. We work as long-term partners with skin in the game, not vendors.",
   },
 ] as const;
 

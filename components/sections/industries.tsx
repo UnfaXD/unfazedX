@@ -22,10 +22,10 @@ export function Industries() {
                 id="industries-heading"
                 className="text-balance font-sans text-4xl font-bold uppercase leading-[0.92] tracking-tight sm:text-5xl lg:text-6xl"
               >
-                Sectors
+                Who we
                 <br />
                 <span className="text-muted-foreground italic font-light">
-                  we own.
+                  work with.
                 </span>
               </h2>
             </Reveal>
@@ -33,8 +33,9 @@ export function Industries() {
           <div className="lg:col-span-7">
             <Reveal delay={0.1}>
               <p className="text-muted-foreground text-base sm:text-lg">
-                Vertical depth across the markets shaping Africa's economic future.
-                We don't dabble — we go deep.
+                From cafés and clinics to real estate, tourism and growing
+                startups — we help Rwandan businesses look credible and win
+                customers online.
               </p>
             </Reveal>
           </div>

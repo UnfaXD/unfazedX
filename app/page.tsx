@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/hero";
 import { TrustMetrics } from "@/components/sections/trust-metrics";
 import { About } from "@/components/sections/about";
 import { Services } from "@/components/sections/services";
+import { Pricing } from "@/components/sections/pricing";
 import { WhyUnfazedX } from "@/components/sections/why-unfazedx";
 import { Ventures } from "@/components/sections/ventures";
 import { Process } from "@/components/sections/process";
@@ -22,6 +23,7 @@ export default function HomePage() {
         <TrustMetrics />
         <About />
         <Services />
+        <Pricing />
         <WhyUnfazedX />
         <Ventures />
         <Process />

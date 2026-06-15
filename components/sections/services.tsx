@@ -44,7 +44,7 @@ export function Services() {
           {services.map((service) => (
             <RevealItem
               key={service.id}
-              className="group border-border bg-card hover:border-lime/40 relative flex flex-col gap-6 overflow-hidden rounded-2xl border p-7 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_48px_-24px_rgba(223,225,4,0.18)]"
+              className="group border-border bg-card hover:border-lime/40 relative flex flex-col gap-6 overflow-hidden rounded-2xl border p-7 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_48px_-24px_rgba(143,249,1,0.18)]"
             >
               <div
                 aria-hidden="true"

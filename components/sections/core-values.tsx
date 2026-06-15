@@ -35,7 +35,7 @@ export function CoreValues() {
           </Reveal>
         </div>
 
-        <RevealStagger className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <RevealStagger className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {coreValues.map((value, idx) => (
             <RevealItem
               key={value.title}

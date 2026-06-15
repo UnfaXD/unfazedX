@@ -50,7 +50,7 @@ export function CTA() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Start a project on WhatsApp · ${brand.phone}`}
-              className="bg-lime text-lime-foreground group inline-flex w-full items-center justify-center gap-2 rounded-full px-7 py-4 text-base font-semibold transition-transform hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-10px_rgba(223,225,4,0.55)] sm:w-auto"
+              className="bg-lime text-lime-foreground group inline-flex w-full items-center justify-center gap-2 rounded-full px-7 py-4 text-base font-semibold transition-transform hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-10px_rgba(143,249,1,0.55)] sm:w-auto"
             >
               <WhatsAppIcon className="size-5" />
               Start a project on WhatsApp

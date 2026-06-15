@@ -64,7 +64,7 @@ export function Nav() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Start a project on WhatsApp · ${brand.phone}`}
-            className="bg-lime text-lime-foreground hidden items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-transform hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_rgba(223,225,4,0.6)] md:inline-flex"
+            className="bg-lime text-lime-foreground hidden items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-transform hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_rgba(143,249,1,0.6)] md:inline-flex"
           >
             <WhatsAppIcon className="size-4" />
             Start a project

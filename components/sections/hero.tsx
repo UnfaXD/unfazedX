@@ -51,7 +51,7 @@ export function Hero() {
           <span className="bg-lime relative inline-flex size-1.5 rounded-full">
             <span className="bg-lime absolute inset-0 animate-ping rounded-full opacity-75" />
           </span>
-          Kigali-born venture studio · Est. 2024
+          Kigali creative-tech studio · Est. 2024
         </motion.div>
 
         <motion.h1
@@ -64,7 +64,7 @@ export function Hero() {
           }}
           className="text-balance mt-8 font-sans text-[clamp(3.2rem,11vw,11rem)] font-bold uppercase leading-[0.88] tracking-[-0.04em]"
         >
-          {["Engineering", "Africa's", "next decade"].map((word, i) => (
+          {["Bold brands.", "Real products.", "Built to grow."].map((word, i) => (
             <motion.span
               key={i}
               variants={{
@@ -74,14 +74,13 @@ export function Hero() {
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
               className="block"
             >
-              {word === "Africa's" ? (
+              {word === "Real products." ? (
                 <>
-                  Africa
-                  <span className="text-lime">'s</span>
+                  <span className="text-muted-foreground italic font-light">Real</span> products.
                 </>
-              ) : word === "next decade" ? (
+              ) : word === "Built to grow." ? (
                 <>
-                  <span className="text-muted-foreground italic font-light">next</span> decade
+                  Built to <span className="text-lime">grow.</span>
                 </>
               ) : (
                 word
@@ -97,10 +96,10 @@ export function Hero() {
           className="mt-10 grid gap-8 sm:mt-14 sm:grid-cols-2 sm:items-end"
         >
           <p className="text-muted-foreground max-w-md text-balance text-lg leading-relaxed sm:text-xl">
-            UnfazedX Holdings is a technology venture studio and digital
-            solutions company. We <span className="text-foreground">build,
-            launch, grow, and scale</span> digital products — and our own
-            ventures — out of Kigali, for Africa.
+            UnfazedX is a Kigali creative-tech studio. We design and build{" "}
+            <span className="text-foreground">websites, online stores, and
+            brands</span> for ambitious Rwandan businesses — and grow our own
+            ventures alongside them.
           </p>
           <div className="flex flex-col items-start gap-3 sm:items-end">
             <div className="flex flex-wrap items-center gap-3">
@@ -109,17 +108,17 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Start a project on WhatsApp · ${brand.phone}`}
-                className="bg-lime text-lime-foreground group inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-transform hover:-translate-y-0.5 hover:shadow-[0_12px_32px_-8px_rgba(223,225,4,0.55)]"
+                className="bg-lime text-lime-foreground group inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-transform hover:-translate-y-0.5 hover:shadow-[0_12px_32px_-8px_rgba(143,249,1,0.55)]"
               >
                 <WhatsAppIcon className="size-4" />
                 Start a project
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
               </a>
               <a
-                href="#ventures"
+                href="#pricing"
                 className="border-border bg-secondary/40 text-foreground hover:bg-secondary inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold backdrop-blur transition-colors"
               >
-                Explore portfolio
+                View packages
               </a>
             </div>
             <p className="text-muted-foreground text-xs">
