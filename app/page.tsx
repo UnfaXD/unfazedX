@@ -12,7 +12,6 @@ import { Industries } from "@/components/sections/industries";
 import { CoreValues } from "@/components/sections/core-values";
 import { Portfolio } from "@/components/sections/portfolio";
 import { CaseStudies } from "@/components/sections/case-studies";
-import { Testimonials } from "@/components/sections/testimonials";
 import { Faq } from "@/components/sections/faq";
 import { CTA } from "@/components/sections/cta";
 import { Footer } from "@/components/sections/footer";
@@ -35,7 +34,6 @@ export default function HomePage() {
         <CoreValues />
         <Portfolio />
         <CaseStudies />
-        <Testimonials />
         <Faq />
         <CTA />
       </main>

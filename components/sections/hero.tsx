@@ -7,7 +7,59 @@ import { Container } from "@/components/site/container";
 import { WhatsAppIcon } from "@/components/site/icons";
 import { brand, projects } from "@/lib/brand";
 
-const featured = projects.slice(0, 4);
+const featured = projects.slice(0, 8);
+
+function WorkCard({
+  p,
+  decorative = false,
+}: {
+  p: (typeof projects)[number];
+  decorative?: boolean;
+}) {
+  return (
+    <a
+      href={p.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      tabIndex={decorative ? -1 : undefined}
+      aria-label={
+        decorative ? undefined : `${p.title} — ${p.category}, view on ${p.platform}`
+      }
+      className="group/card focus-visible:outline-lime relative block aspect-[4/3] w-56 shrink-0 overflow-hidden rounded-2xl border border-border/60 transition-colors duration-500 hover:border-lime/40 focus-visible:outline-2 focus-visible:outline-offset-4 sm:w-64"
+    >
+      <div
+        aria-hidden="true"
+        className={`absolute inset-0 bg-gradient-to-br ${p.gradient} opacity-80`}
+      />
+      <Image
+        src={p.image}
+        alt={decorative ? "" : `${p.title} — ${p.category} by UnfazedX`}
+        fill
+        sizes="256px"
+        className="object-cover transition-transform duration-700 group-hover/card:scale-105"
+        style={{ objectPosition: p.objectPosition ?? "center" }}
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
+      />
+      <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-3">
+        <span className="text-white font-sans text-sm font-bold uppercase tracking-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
+          {p.title}
+        </span>
+        <span
+          aria-hidden="true"
+          className="bg-white/15 text-white inline-flex size-7 shrink-0 items-center justify-center rounded-full text-sm backdrop-blur-md transition-all duration-500 group-hover/card:bg-lime group-hover/card:text-lime-foreground group-hover/card:rotate-45"
+        >
+          ↗
+        </span>
+      </div>
+      <span className="bg-black/55 text-white/90 absolute left-3 top-3 inline-flex items-center rounded-full px-2 py-0.5 text-[9px] font-medium uppercase tracking-wider backdrop-blur-md">
+        {p.category}
+      </span>
+    </a>
+  );
+}
 
 export function Hero() {
   const reduced = useReducedMotion() ?? false;
@@ -163,50 +215,26 @@ export function Hero() {
               View all projects →
             </a>
           </div>
-          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {featured.map((p) => (
-              <li key={p.title}>
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${p.title} — ${p.category}, view on ${p.platform}`}
-                  className="group focus-visible:outline-lime relative block aspect-[4/3] overflow-hidden rounded-2xl border border-border/60 transition-all duration-500 hover:-translate-y-1 hover:border-lime/40 focus-visible:outline-2 focus-visible:outline-offset-4"
-                >
-                  <div
-                    aria-hidden="true"
-                    className={`absolute inset-0 bg-gradient-to-br ${p.gradient} opacity-80`}
-                  />
-                  <Image
-                    src={p.image}
-                    alt={`${p.title} — ${p.category} by UnfazedX`}
-                    fill
-                    sizes="(max-width: 640px) 50vw, 25vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    style={{ objectPosition: p.objectPosition ?? "center" }}
-                  />
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-3">
-                    <span className="text-white font-sans text-sm font-bold uppercase tracking-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
-                      {p.title}
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      className="bg-white/15 text-white inline-flex size-7 shrink-0 items-center justify-center rounded-full text-sm backdrop-blur-md transition-all duration-500 group-hover:bg-lime group-hover:text-lime-foreground group-hover:rotate-45"
-                    >
-                      ↗
-                    </span>
-                  </div>
-                  <span className="bg-black/55 text-white/90 absolute left-3 top-3 inline-flex items-center rounded-full px-2 py-0.5 text-[9px] font-medium uppercase tracking-wider backdrop-blur-md">
-                    {p.category}
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
+          {reduced ? (
+            <div className="-mx-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:px-0">
+              <div className="flex w-max gap-3">
+                {featured.map((p) => (
+                  <WorkCard key={p.title} p={p} />
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div
+              aria-hidden="true"
+              className="group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]"
+            >
+              <div className="animate-marquee flex w-max gap-3 group-hover:[animation-play-state:paused]">
+                {[...featured, ...featured].map((p, i) => (
+                  <WorkCard key={`${p.title}-${i}`} p={p} decorative />
+                ))}
+              </div>
+            </div>
+          )}
         </motion.div>
       </Container>
     </section>
