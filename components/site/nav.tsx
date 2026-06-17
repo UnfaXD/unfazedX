@@ -1,10 +1,11 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { WhatsAppIcon } from "@/components/site/icons";
 import { Logo } from "@/components/site/logo";
-import { brand, navLinks } from "@/lib/brand";
+import { brand, headerLinks } from "@/lib/brand";
 import { cn } from "@/lib/utils";
 
 export function Nav() {
@@ -36,18 +37,18 @@ export function Nav() {
             : "border-transparent bg-transparent",
         )}
       >
-        <a
-          href="#hero"
+        <Link
+          href="/"
           className="focus-visible:outline-lime rounded-md focus-visible:outline-2 focus-visible:outline-offset-4"
         >
           <Logo />
-        </a>
+        </Link>
 
         <nav
           aria-label="Primary"
           className="hidden items-center gap-1 md:flex"
         >
-          {navLinks.map((link) => (
+          {headerLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -106,7 +107,7 @@ export function Nav() {
             className="border-border bg-background/95 mx-4 mt-2 rounded-2xl border p-3 backdrop-blur-xl md:hidden"
           >
             <ul className="flex flex-col gap-1">
-              {navLinks.map((link) => (
+              {headerLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}

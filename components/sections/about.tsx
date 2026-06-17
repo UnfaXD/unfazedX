@@ -35,7 +35,7 @@ export function About() {
           <div className="lg:col-span-7 lg:pl-12">
             <Reveal delay={0.1}>
               <p className="text-foreground/90 text-balance text-xl leading-relaxed sm:text-2xl">
-                We don't consult. We don't ship features. We{" "}
+                We don&apos;t consult. We don&apos;t ship features. We{" "}
                 <span className="text-lime">build, launch, grow, and scale</span>{" "}
                 digital products — and our own ventures — from Kigali, Rwanda.
               </p>

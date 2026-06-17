@@ -3,6 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import { Container } from "@/components/site/container";
+import { ExternalLinkIcon } from "@/components/site/icons";
 import { Reveal, RevealItem, RevealStagger } from "@/components/site/reveal";
 import { projects } from "@/lib/brand";
 import { cn } from "@/lib/utils";
@@ -118,11 +119,8 @@ export function Portfolio() {
                   </div>
 
                   <div className="absolute top-4 right-4 z-10">
-                    <span
-                      aria-hidden="true"
-                      className="bg-white/15 text-white inline-flex size-9 items-center justify-center rounded-full text-lg backdrop-blur-md transition-all duration-500 group-hover:bg-lime group-hover:text-lime-foreground group-hover:rotate-45"
-                    >
-                      ↗
+                    <span className="bg-white/15 text-white inline-flex size-9 items-center justify-center rounded-full backdrop-blur-md transition-all duration-500 group-hover:bg-lime group-hover:text-lime-foreground group-hover:rotate-45">
+                      <ExternalLinkIcon className="size-4" />
                     </span>
                   </div>
 
@@ -153,7 +151,7 @@ export function Portfolio() {
             rel="noopener noreferrer"
             className="border-border bg-secondary text-foreground hover:border-lime/60 hover:text-lime inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold transition-colors"
           >
-            View all on Dribbble <span aria-hidden>↗</span>
+            View all on Dribbble <ExternalLinkIcon className="size-4" />
           </a>
           <a
             href="https://www.behance.net/unfazedexperie"
@@ -161,7 +159,7 @@ export function Portfolio() {
             rel="noopener noreferrer"
             className="border-border bg-secondary text-foreground hover:border-lime/60 hover:text-lime inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold transition-colors"
           >
-            View all on Behance <span aria-hidden>↗</span>
+            View all on Behance <ExternalLinkIcon className="size-4" />
           </a>
           <a
             href="https://www.pinterest.com/ReconfortDaniel/netfort-uiz/"
@@ -169,7 +167,7 @@ export function Portfolio() {
             rel="noopener noreferrer"
             className="border-border bg-secondary text-foreground hover:border-lime/60 hover:text-lime inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold transition-colors"
           >
-            Mood board on Pinterest <span aria-hidden>↗</span>
+            Mood board on Pinterest <ExternalLinkIcon className="size-4" />
           </a>
         </Reveal>
       </Container>

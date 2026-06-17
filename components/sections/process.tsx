@@ -30,7 +30,7 @@ export function Process() {
           <Reveal delay={0.1}>
             <p className="text-muted-foreground mt-6 text-base sm:text-lg">
               A repeatable five-stage operating model proven across every venture
-              we've launched.
+              we&apos;ve launched.
             </p>
           </Reveal>
         </div>

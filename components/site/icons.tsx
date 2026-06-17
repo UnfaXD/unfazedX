@@ -1,4 +1,15 @@
+import { ArrowUpRight } from "lucide-react";
+
 import { cn } from "@/lib/utils";
+
+export function ExternalLinkIcon({ className }: { className?: string }) {
+  return (
+    <ArrowUpRight
+      aria-hidden="true"
+      className={cn("size-4", className)}
+    />
+  );
+}
 
 export function WhatsAppIcon({ className }: { className?: string }) {
   return (

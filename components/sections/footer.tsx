@@ -1,5 +1,6 @@
+import Link from "next/link";
 import { Container } from "@/components/site/container";
-import { WhatsAppIcon } from "@/components/site/icons";
+import { ExternalLinkIcon, WhatsAppIcon } from "@/components/site/icons";
 import { Logo } from "@/components/site/logo";
 import { brand, navLinks } from "@/lib/brand";
 
@@ -10,13 +11,9 @@ export function Footer() {
       <Container>
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <a
-              href="#hero"
-              aria-label="UnfazedX home"
-              className="inline-flex"
-            >
+            <Link href="/" aria-label="UnfazedX home" className="inline-flex">
               <Logo className="text-xl" />
-            </a>
+            </Link>
             <p className="text-muted-foreground mt-5 max-w-sm text-base leading-relaxed">
               {brand.description}
             </p>
@@ -60,7 +57,7 @@ export function Footer() {
                     className="text-foreground hover:text-lime inline-flex items-center gap-1.5 text-sm transition-colors"
                   >
                     {s.label}
-                    <span aria-hidden className="text-xs">↗</span>
+                    <ExternalLinkIcon className="size-3" />
                   </a>
                 </li>
               ))}
@@ -135,12 +132,7 @@ export function Footer() {
             <span className="text-foreground font-semibold">
               {brand.builder.name}
             </span>
-            <span
-              aria-hidden="true"
-              className="text-muted-foreground group-hover:text-lime transition-colors"
-            >
-              ↗
-            </span>
+            <ExternalLinkIcon className="text-muted-foreground group-hover:text-lime size-3.5 transition-colors" />
           </a>
         </div>
       </Container>

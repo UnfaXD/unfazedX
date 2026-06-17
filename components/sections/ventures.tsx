@@ -25,7 +25,7 @@ export function Ventures() {
                 Companies
                 <br />
                 <span className="text-muted-foreground italic font-light">
-                  we're
+                  we&apos;re
                 </span>{" "}
                 building.
               </h2>

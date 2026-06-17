@@ -4,7 +4,7 @@ import * as React from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 import { Container } from "@/components/site/container";
-import { WhatsAppIcon } from "@/components/site/icons";
+import { ExternalLinkIcon, WhatsAppIcon } from "@/components/site/icons";
 import { brand, projects } from "@/lib/brand";
 
 const featured = projects.slice(0, 8);
@@ -47,11 +47,8 @@ function WorkCard({
         <span className="text-white font-sans text-sm font-bold uppercase tracking-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
           {p.title}
         </span>
-        <span
-          aria-hidden="true"
-          className="bg-white/15 text-white inline-flex size-7 shrink-0 items-center justify-center rounded-full text-sm backdrop-blur-md transition-all duration-500 group-hover/card:bg-lime group-hover/card:text-lime-foreground group-hover/card:rotate-45"
-        >
-          ↗
+        <span className="bg-white/15 text-white inline-flex size-7 shrink-0 items-center justify-center rounded-full backdrop-blur-md transition-all duration-500 group-hover/card:bg-lime group-hover/card:text-lime-foreground group-hover/card:rotate-45">
+          <ExternalLinkIcon className="size-3.5" />
         </span>
       </div>
       <span className="bg-black/55 text-white/90 absolute left-3 top-3 inline-flex items-center rounded-full px-2 py-0.5 text-[9px] font-medium uppercase tracking-wider backdrop-blur-md">

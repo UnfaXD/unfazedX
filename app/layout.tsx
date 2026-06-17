@@ -146,7 +146,7 @@ const organizationJsonLd = {
   description: SITE_DESCRIPTION,
   slogan: "Build. Launch. Grow. Scale.",
   foundingDate: "2024",
-  email: "reconfortdanny@gmail.com",
+  email: "unfazedxperience@gmail.com",
   telephone: "+250780151067",
   image: OG_IMAGE,
   logo: `${SITE_URL}/projects/logosvg.png`,

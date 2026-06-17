@@ -5,7 +5,7 @@ export const brand = {
   subtagline: "Web · Brand · Product · Growth — for Rwandan businesses",
   description:
     "UnfazedX is a Kigali-based creative technology studio. We design and build websites, online stores, brands, and digital products for ambitious businesses across Rwanda — and build our own ventures alongside them.",
-  email: "reconfortdanny@gmail.com",
+  email: "unfazedxperience@gmail.com",
   phone: "+250 780 151 067",
   whatsapp: {
     number: "250780151067",
@@ -37,15 +37,24 @@ export const brand = {
   ],
 } as const;
 
+// Full set used in the footer.
 export const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Ventures", href: "#ventures" },
-  { label: "Process", href: "#process" },
-  { label: "Projects", href: "#projects" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#cta" },
+  { label: "About", href: "/#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "Ventures", href: "/#ventures" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Newsletter", href: "/newsletter" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Contact", href: "/#cta" },
+] as const;
+
+// Trimmed set shown in the top header nav.
+export const headerLinks = [
+  { label: "About", href: "/#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "Contact", href: "/#cta" },
 ] as const;
 
 export const trustMetrics = [

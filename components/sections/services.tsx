@@ -1,4 +1,5 @@
 import { Container } from "@/components/site/container";
+import { ExternalLinkIcon } from "@/components/site/icons";
 import { Reveal, RevealItem, RevealStagger } from "@/components/site/reveal";
 import { services } from "@/lib/brand";
 
@@ -54,12 +55,7 @@ export function Services() {
                 <span className="text-muted-foreground font-mono text-xs font-medium">
                   {service.id}
                 </span>
-                <span
-                  aria-hidden="true"
-                  className="text-muted-foreground group-hover:text-lime transition-colors group-hover:rotate-45 duration-500 transform-gpu"
-                >
-                  ↗
-                </span>
+                <ExternalLinkIcon className="text-muted-foreground group-hover:text-lime size-4 transition-colors duration-500 group-hover:rotate-45 transform-gpu" />
               </div>
               <h3 className="font-sans text-2xl font-bold uppercase tracking-tight sm:text-3xl">
                 {service.title}
