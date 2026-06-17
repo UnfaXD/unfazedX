@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk } from "next/font/google";
 import Script from "next/script";
+import { faqs } from "@/lib/brand";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -106,10 +107,21 @@ const organizationJsonLd = {
     addressCountry: "RW",
   },
   sameAs: [
-    "https://dribbble.com/Netfort",
-    "https://www.behance.net/reconfortdaniel",
-    "https://www.pinterest.com/ReconfortDaniel/netfort-uiz/",
+    "https://www.instagram.com/theunfazedxp/",
+    "https://www.linkedin.com/company/unfazedxd",
+    "https://x.com/UnfazedXp",
+    "https://www.behance.net/unfazedexperie",
   ],
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
 };
 
 export default function RootLayout({
@@ -137,6 +149,13 @@ export default function RootLayout({
           strategy="afterInteractive"
         >
           {JSON.stringify(organizationJsonLd)}
+        </Script>
+        <Script
+          id="faq-jsonld"
+          type="application/ld+json"
+          strategy="afterInteractive"
+        >
+          {JSON.stringify(faqJsonLd)}
         </Script>
       </body>
     </html>

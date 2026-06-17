@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export function Logo({ className }: { className?: string }) {
@@ -8,12 +9,14 @@ export function Logo({ className }: { className?: string }) {
         className,
       )}
     >
-      <span
-        aria-hidden="true"
-        className="bg-lime text-lime-foreground inline-flex size-7 items-center justify-center rounded-md font-extrabold"
-      >
-        U
-      </span>
+      <Image
+        src="/projects/logosvg.png"
+        alt="UnfazedX logo"
+        width={28}
+        height={28}
+        priority
+        className="size-7 object-contain"
+      />
       <span>
         unfazed
         <span className="text-lime">X</span>

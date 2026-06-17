@@ -1,6 +1,7 @@
 import { Container } from "@/components/site/container";
 import { WhatsAppIcon } from "@/components/site/icons";
 import { Marquee } from "@/components/site/marquee";
+import { ProjectForm } from "@/components/site/project-form";
 import { Reveal } from "@/components/site/reveal";
 import { brand, marqueeWords } from "@/lib/brand";
 
@@ -23,7 +24,7 @@ export function CTA() {
       <Container>
         <Reveal>
           <p className="text-lime mb-6 text-center text-xs font-semibold uppercase tracking-[0.25em]">
-            ● Let's build
+            ● Let&apos;s build
           </p>
         </Reveal>
         <Reveal delay={0.05}>
@@ -65,6 +66,9 @@ export function CTA() {
               Or email us
             </a>
           </div>
+        </Reveal>
+        <Reveal delay={0.18}>
+          <ProjectForm />
         </Reveal>
         <Reveal delay={0.2}>
           <p className="text-muted-foreground mt-6 text-center text-sm">

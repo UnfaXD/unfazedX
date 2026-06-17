@@ -1,11 +1,13 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 import { Container } from "@/components/site/container";
 import { WhatsAppIcon } from "@/components/site/icons";
-import { Marquee } from "@/components/site/marquee";
-import { brand, marqueeWords } from "@/lib/brand";
+import { brand, projects } from "@/lib/brand";
+
+const featured = projects.slice(0, 4);
 
 export function Hero() {
   const reduced = useReducedMotion() ?? false;
@@ -15,15 +17,14 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", reduced ? "0%" : "30%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, reduced ? 1 : 0.2]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, reduced ? 1 : 0.94]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", reduced ? "0%" : "20%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, reduced ? 1 : 0.25]);
 
   return (
     <section
       id="hero"
       ref={ref}
-      className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden pt-28 pb-12 sm:pt-36 sm:pb-16"
+      className="relative isolate flex min-h-[100svh] flex-col overflow-hidden pt-28 pb-10 sm:pt-36 sm:pb-14"
     >
       <motion.div
         style={{ y, opacity }}
@@ -33,17 +34,18 @@ export function Hero() {
       <motion.div
         style={{ y, opacity }}
         aria-hidden="true"
-        className="bg-lime/30 pointer-events-none absolute -top-32 left-1/2 -z-10 size-[44rem] -translate-x-1/2 rounded-full blur-[160px] animate-blob"
+        className="bg-lime/25 pointer-events-none absolute -top-32 left-1/2 -z-10 size-[44rem] -translate-x-1/2 rounded-full blur-[160px] animate-blob"
       />
       <motion.div
         style={{ y }}
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-20 right-10 -z-10 size-72 rounded-full bg-fuchsia-500/10 blur-[120px] animate-blob"
+        className="pointer-events-none absolute top-1/3 right-0 -z-10 size-72 rounded-full bg-fuchsia-500/10 blur-[120px] animate-blob"
       />
 
-      <Container className="flex flex-1 flex-col justify-end">
+      <Container className="flex flex-1 flex-col">
+        {/* Top: badge + headline */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="border-border bg-secondary/40 text-muted-foreground inline-flex w-fit items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium backdrop-blur"
@@ -51,24 +53,26 @@ export function Hero() {
           <span className="bg-lime relative inline-flex size-1.5 rounded-full">
             <span className="bg-lime absolute inset-0 animate-ping rounded-full opacity-75" />
           </span>
-          Kigali creative-tech studio · Est. 2024
+          <span className="text-foreground font-semibold">
+            Available for new projects
+          </span>
+          <span className="text-muted-foreground/70">· Kigali · Est. 2024</span>
         </motion.div>
 
         <motion.h1
-          style={{ scale }}
           initial="hidden"
           animate="visible"
           variants={{
             hidden: {},
             visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
           }}
-          className="text-balance mt-8 font-sans text-[clamp(3.2rem,11vw,11rem)] font-bold uppercase leading-[0.88] tracking-[-0.04em]"
+          className="text-balance mt-6 font-sans text-[clamp(2.6rem,8.5vw,8.5rem)] font-bold uppercase leading-[0.9] tracking-[-0.04em] sm:mt-8"
         >
           {["Bold brands.", "Real products.", "Built to grow."].map((word, i) => (
             <motion.span
               key={i}
               variants={{
-                hidden: { opacity: 0, y: 80, filter: "blur(12px)" },
+                hidden: { opacity: 0, y: 60, filter: "blur(12px)" },
                 visible: { opacity: 1, y: 0, filter: "blur(0px)" },
               }}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
@@ -76,7 +80,10 @@ export function Hero() {
             >
               {word === "Real products." ? (
                 <>
-                  <span className="text-muted-foreground italic font-light">Real</span> products.
+                  <span className="text-muted-foreground italic font-light">
+                    Real
+                  </span>{" "}
+                  products.
                 </>
               ) : word === "Built to grow." ? (
                 <>
@@ -89,19 +96,22 @@ export function Hero() {
           ))}
         </motion.h1>
 
+        {/* Subhead + CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10 grid gap-8 sm:mt-14 sm:grid-cols-2 sm:items-end"
+          transition={{ delay: 0.55, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between"
         >
-          <p className="text-muted-foreground max-w-md text-balance text-lg leading-relaxed sm:text-xl">
+          <p className="text-muted-foreground max-w-md text-balance text-base leading-relaxed sm:text-lg">
             UnfazedX is a Kigali creative-tech studio. We design and build{" "}
-            <span className="text-foreground">websites, online stores, and
-            brands</span> for ambitious Rwandan businesses — and grow our own
-            ventures alongside them.
+            <span className="text-foreground">
+              websites, online stores, and brands
+            </span>{" "}
+            for ambitious Rwandan businesses — and grow our own ventures
+            alongside them.
           </p>
-          <div className="flex flex-col items-start gap-3 sm:items-end">
+          <div className="flex flex-col gap-3">
             <div className="flex flex-wrap items-center gap-3">
               <a
                 href={brand.whatsapp.url}
@@ -112,7 +122,12 @@ export function Hero() {
               >
                 <WhatsAppIcon className="size-4" />
                 Start a project
-                <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+                <span
+                  aria-hidden
+                  className="transition-transform group-hover:translate-x-1"
+                >
+                  →
+                </span>
               </a>
               <a
                 href="#pricing"
@@ -121,21 +136,79 @@ export function Hero() {
                 View packages
               </a>
             </div>
-            <p className="text-muted-foreground text-xs">
-              Operating from Kigali · Serving Rwanda, East Africa & beyond
+            <p className="text-foreground/80 inline-flex items-center gap-1.5 text-xs font-medium lg:justify-end">
+              <span className="text-lime" aria-hidden>
+                ✓
+              </span>
+              Free first consult · We reply within a day
             </p>
           </div>
         </motion.div>
-      </Container>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.8 }}
-        className="text-foreground/60 mt-12 border-t border-border/60 py-5 font-sans text-2xl font-bold uppercase tracking-tight sm:text-3xl"
-      >
-        <Marquee items={marqueeWords} speed="normal" />
-      </motion.div>
+        {/* Bottom: featured work preview */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-auto pt-10 sm:pt-12"
+        >
+          <div className="mb-3 flex items-center justify-between">
+            <p className="text-muted-foreground text-xs font-semibold uppercase tracking-[0.25em]">
+              ● Featured work
+            </p>
+            <a
+              href="#projects"
+              className="text-muted-foreground hover:text-lime text-xs font-semibold transition-colors"
+            >
+              View all projects →
+            </a>
+          </div>
+          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {featured.map((p) => (
+              <li key={p.title}>
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${p.title} — ${p.category}, view on ${p.platform}`}
+                  className="group focus-visible:outline-lime relative block aspect-[4/3] overflow-hidden rounded-2xl border border-border/60 transition-all duration-500 hover:-translate-y-1 hover:border-lime/40 focus-visible:outline-2 focus-visible:outline-offset-4"
+                >
+                  <div
+                    aria-hidden="true"
+                    className={`absolute inset-0 bg-gradient-to-br ${p.gradient} opacity-80`}
+                  />
+                  <Image
+                    src={p.image}
+                    alt={`${p.title} — ${p.category} by UnfazedX`}
+                    fill
+                    sizes="(max-width: 640px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    style={{ objectPosition: p.objectPosition ?? "center" }}
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-3">
+                    <span className="text-white font-sans text-sm font-bold uppercase tracking-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
+                      {p.title}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="bg-white/15 text-white inline-flex size-7 shrink-0 items-center justify-center rounded-full text-sm backdrop-blur-md transition-all duration-500 group-hover:bg-lime group-hover:text-lime-foreground group-hover:rotate-45"
+                    >
+                      ↗
+                    </span>
+                  </div>
+                  <span className="bg-black/55 text-white/90 absolute left-3 top-3 inline-flex items-center rounded-full px-2 py-0.5 text-[9px] font-medium uppercase tracking-wider backdrop-blur-md">
+                    {p.category}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+      </Container>
     </section>
   );
 }

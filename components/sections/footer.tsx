@@ -48,7 +48,7 @@ export function Footer() {
 
           <div className="lg:col-span-2">
             <p className="text-muted-foreground mb-4 text-xs font-semibold uppercase tracking-wider">
-              Work
+              Follow
             </p>
             <ul className="flex flex-col gap-2.5">
               {brand.socials.map((s) => (

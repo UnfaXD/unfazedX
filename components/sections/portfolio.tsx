@@ -1,9 +1,18 @@
+"use client";
+
+import * as React from "react";
 import Image from "next/image";
 import { Container } from "@/components/site/container";
 import { Reveal, RevealItem, RevealStagger } from "@/components/site/reveal";
 import { projects } from "@/lib/brand";
+import { cn } from "@/lib/utils";
+
+const FILTERS = ["All", ...Array.from(new Set(projects.map((p) => p.category)))] as const;
 
 export function Portfolio() {
+  const [active, setActive] = React.useState<(typeof FILTERS)[number]>("All");
+  const visible = active === "All" ? projects : projects.filter((p) => p.category === active);
+
   return (
     <section
       id="projects"
@@ -11,7 +20,7 @@ export function Portfolio() {
       className="relative py-20 sm:py-28"
     >
       <Container>
-        <div className="mb-12 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+        <div className="mb-10 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <div>
             <Reveal>
               <p className="text-lime mb-4 text-xs font-semibold uppercase tracking-[0.25em]">
@@ -35,19 +44,47 @@ export function Portfolio() {
           <Reveal delay={0.1}>
             <p className="text-muted-foreground max-w-md text-base sm:text-lg">
               A selection of brand identity, UI/UX, and product design work from
-              UnfazedX. Tap any card to view the full case on Dribbble or Behance.
+              UnfazedX. Filter by type, then open any project to view the full
+              case study.
             </p>
           </Reveal>
         </div>
 
+        {/* Category filter */}
+        <Reveal delay={0.12}>
+          <div
+            role="tablist"
+            aria-label="Filter projects by type"
+            className="mb-10 flex flex-wrap gap-2"
+          >
+            {FILTERS.map((f) => (
+              <button
+                key={f}
+                type="button"
+                role="tab"
+                aria-selected={active === f}
+                onClick={() => setActive(f)}
+                className={cn(
+                  "rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-300",
+                  active === f
+                    ? "border-lime bg-lime text-lime-foreground"
+                    : "border-border bg-secondary/40 text-muted-foreground hover:border-lime/50 hover:text-foreground",
+                )}
+              >
+                {f}
+              </button>
+            ))}
+          </div>
+        </Reveal>
+
         <RevealStagger className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
+          {visible.map((project) => (
             <RevealItem key={project.title}>
               <a
                 href={project.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${project.title} — view on ${project.platform}`}
+                aria-label={`${project.title} — view the full case study on ${project.platform}`}
                 className="group focus-visible:outline-lime relative block overflow-hidden rounded-3xl border border-border/60 bg-card transition-all duration-700 hover:-translate-y-1 hover:border-border focus-visible:outline-2 focus-visible:outline-offset-4"
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
@@ -96,10 +133,13 @@ export function Portfolio() {
                   </div>
                 </div>
 
-                <div className="border-t border-border/60 p-5">
+                <div className="flex items-center justify-between gap-3 border-t border-border/60 p-5">
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     {project.blurb}
                   </p>
+                  <span className="text-muted-foreground group-hover:text-lime shrink-0 self-end text-xs font-semibold whitespace-nowrap transition-colors">
+                    View case study →
+                  </span>
                 </div>
               </a>
             </RevealItem>
@@ -116,7 +156,7 @@ export function Portfolio() {
             View all on Dribbble <span aria-hidden>↗</span>
           </a>
           <a
-            href="https://www.behance.net/reconfortdaniel"
+            href="https://www.behance.net/unfazedexperie"
             target="_blank"
             rel="noopener noreferrer"
             className="border-border bg-secondary text-foreground hover:border-lime/60 hover:text-lime inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold transition-colors"

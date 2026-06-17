@@ -30,13 +30,10 @@ export const brand = {
     label: "reconfort.vercel.app",
   },
   socials: [
-    { label: "Dribbble", href: "https://dribbble.com/Netfort" },
-    { label: "Behance", href: "https://www.behance.net/reconfortdaniel" },
-    {
-      label: "Pinterest",
-      href: "https://www.pinterest.com/ReconfortDaniel/netfort-uiz/",
-    },
-    { label: "Portfolio", href: "https://unfazedx.com" },
+    { label: "Instagram", href: "https://www.instagram.com/theunfazedxp/" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/unfazedxd" },
+    { label: "X (Twitter)", href: "https://x.com/UnfazedXp" },
+    { label: "Behance", href: "https://www.behance.net/unfazedexperie" },
   ],
 } as const;
 
@@ -47,6 +44,7 @@ export const navLinks = [
   { label: "Ventures", href: "#ventures" },
   { label: "Process", href: "#process" },
   { label: "Projects", href: "#projects" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#cta" },
 ] as const;
 
@@ -510,6 +508,84 @@ export const clients: readonly ClientItem[] = [
     status: "Venture",
   },
 ] as const;
+
+export type CaseStudy = {
+  client: string;
+  sector: string;
+  challenge: string;
+  approach: string;
+  result: string;
+  tags: readonly string[];
+};
+
+export const caseStudies: readonly CaseStudy[] = [
+  {
+    client: "KLab Rwanda",
+    sector: "Innovation hub · Education",
+    challenge:
+      "One of Kigali's leading tech hubs needed bilingual brand and training materials that could reach thousands of program participants without losing consistency.",
+    approach:
+      "We produced a bilingual (English/Kinyarwanda) brand and training-media system — templates, decks, and assets built to be reused across programs.",
+    result:
+      "A consistent brand and training-media kit used across programs reaching 5,000+ participants.",
+    tags: ["Branding", "Training media", "Bilingual"],
+  },
+  {
+    client: "Park & Pick",
+    sector: "Mobile product",
+    challenge:
+      "A growing mobile product needed to ship features quickly while keeping the experience polished and consistent.",
+    approach:
+      "We led mobile product design and delivered features in React Native, working in tight loops with the team.",
+    result:
+      "50+ shipped features in a clean, consistent app the team can keep extending.",
+    tags: ["Mobile", "Product design", "React Native"],
+  },
+  {
+    client: "Amali-Tech",
+    sector: "Software · Engineering",
+    challenge:
+      "An established engineering team wanted a cleaner product experience and a front-end that could scale as they grew.",
+    approach:
+      "We led a UI/UX redesign, rolled out a micro-frontend architecture, and mentored the in-house team to maintain it.",
+    result:
+      "A modern, consistent interface and a front-end the team can extend independently.",
+    tags: ["UI/UX", "Front-end", "Mentorship"],
+  },
+] as const;
+
+export type Faq = { q: string; a: string };
+
+export const faqs: readonly Faq[] = [
+  {
+    q: "What does UnfazedX do?",
+    a: "We're a Kigali creative-technology studio. We design and build websites, online stores, brands, and digital products — and we build our own ventures (Estatify, UnfazedX Commerce) alongside client work.",
+  },
+  {
+    q: "Who do you work with?",
+    a: "Ambitious Rwandan businesses and beyond — restaurants and cafés, hospitality and tourism, real estate, clinics, retail, professional services, schools, NGOs, and startups. If you want to look credible and win customers online, we can help.",
+  },
+  {
+    q: "How much does a project cost?",
+    a: "It depends on scope, but as a guide: a Launch Site is RWF 350K–550K, a Growth Site RWF 700K–1.25M, and an Online Store RWF 1.8M–4.4M. Brand identity and monthly retainers are also available. See the Packages section for details.",
+  },
+  {
+    q: "How do I pay?",
+    a: "By Mobile Money (MoMo) or bank transfer, with installments available. Most projects are 50% deposit to begin and 50% on delivery — and you approve the design before the final payment.",
+  },
+  {
+    q: "How long does a project take?",
+    a: "Typically 1–2 weeks for a Launch Site, 2–4 weeks for a Growth Site, and 4–10 weeks for an online store or larger platform, depending on scope and how quickly we get your content and feedback.",
+  },
+  {
+    q: "Where are you based, and do you work remotely?",
+    a: "We're based in Kigali, Rwanda, and work with clients across Rwanda and remotely. We're happy to meet in person in Kigali or run the whole project over WhatsApp, email, and calls.",
+  },
+  {
+    q: "Do you offer ongoing support after launch?",
+    a: "Yes. Our Care Plan keeps your site fast, secure, and updated, and our Social + Ads retainer keeps customers coming. Both are billed monthly.",
+  },
+];
 
 export const marqueeWords = [
   "Build",
