@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk } from "next/font/google";
 import Script from "next/script";
+import { Suspense } from "react";
+import { Analytics } from "@/components/site/analytics";
 import { faqs, packages } from "@/lib/brand";
 import "./globals.css";
 
@@ -255,6 +257,9 @@ export default function RootLayout({
         >
           {JSON.stringify(faqJsonLd)}
         </Script>
+        <Suspense fallback={null}>
+          <Analytics />
+        </Suspense>
       </body>
     </html>
   );
